@@ -1,0 +1,29 @@
+﻿<div ng-if="model.IsVisible">
+
+    <div ng-init="prop = model.Properties[propName]; propList = model.PropertyLists[propName]" class="ui selection dropdown" ng-click="parent.showDropDownMenu(propList)">
+        <i class="icon dropdown"></i>
+
+        <div ng-if="!isFilter" ng-class="parent.getDropDownMenuSelectedItemClass(propName, item)">
+            {{parent.getDropDownMenuSelectedItem(propName, item)}}
+        </div>
+        <div ng-if="isFilter" class="default text">{{propName}}</div>
+
+            <div class="menu transition hidden" tabindex="-1" style="display: block; width: auto;">
+                <div class="ui filter icon input">
+                    <i class="filter icon"></i>
+                    <input type="text" placeholder="Filter..." ng-model="filterText">
+                </div>
+                <div class="divider"></div>
+
+                <div ng-if="propList.ContainerType === parent.ContainerType.List" class="scrolling menu">
+                    <!--<table-container container="container" parent="parent" do-load="false"></table-container>-->
+                    <div ng-if="isFilter && addBlank" class="default item" ng-click="parent.changeFilter(model, propName, null)" data-value="0">All</div>
+                    <a class="item" ng-click="parent.dropDownListItemSelected(model, prop, listItem, item, isFilter)" 
+                       ng-repeat="(itemIndex, listItem) in propList.Children | filter: {Name: filterText} track by $index">
+                        {{listItem.Name}}
+                    </a>
+                </div>
+            </div>
+    </div>
+
+</div>

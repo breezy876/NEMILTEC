@@ -1,0 +1,9 @@
+﻿
+<div ng-if="container.IsVisible">
+
+    <div ng-repeat="(childIndex, child) in container.Children" 
+         class="ui segment blue-grey lighten-5">
+        <child model="child" parent="parent"></child>
+    </div>
+
+</div>

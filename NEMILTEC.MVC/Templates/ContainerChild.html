@@ -1,0 +1,29 @@
+﻿
+
+<div>
+    <div ng-if="model.ContainerType === parent.ContainerType.Table">
+        <table-container container="model" parent="parent" do-load="doLoad"></table-container>
+    </div>
+
+    <div ng-if="model.ContainerType === parent.ContainerType.Tabs">
+        <tab-container container="model" parent="parent"></tab-container>
+    </div>
+
+    <div ng-if="model.ContainerType === parent.ContainerType.List">
+        <list-container container="model" parent="parent"></list-container>
+    </div>
+
+    <div ng-if="model.ContainerType === parent.ContainerType.Segment">
+        <segment-container container="model" parent="parent"></segment-container>
+    </div>
+
+    <div ng-if="model.ContainerType === parent.ContainerType.Data">
+        <editor-container container="model" parent="parent"></editor-container>
+    </div>
+
+    <div ng-if="model.ContainerType === parent.ContainerType.Form">
+        <form-container container="model" parent="parent"></form-container>
+    </div>
+
+</div>
+

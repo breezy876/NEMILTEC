@@ -1,0 +1,146 @@
+﻿body {
+    color: #333333
+    overflow-y: hidden;
+}
+
+.body-content {
+    padding-left: 20px;
+    padding-right: 20px
+}
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default 
+input,
+select,
+textarea {
+    max-width: 280px;
+}*/
+
+
+.ui.button {
+    border: 1px solid rgba(34, 36, 38, 0.1);
+}
+
+.ui.button.error:hover {
+    background-color: #b71c1c;
+}
+
+.ui.button.error {
+    background-color: #c62828;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+
+.ui.button.success:hover {
+    background-color: #006064;
+}
+
+
+
+.ui.button.success {
+    background-color: #00838f;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+
+.ui.success {
+    color: #00838f;
+}
+
+
+.ui.error {
+    color: #c62828 
+}
+
+
+.ui.button.smallest {
+        font-size: 1em;
+    padding: 0.28571429em 0.5em 0.28571429em;
+}
+
+ .item.tab i:hover {
+    color: #212121;
+}
+
+  .item.tab.active {
+    color: #212121;
+}
+
+ .item.tab i {
+    color: #616161;
+}
+
+
+   .tiny-font {
+       font-size: 5em;
+   }
+
+      div.scrollable {
+        border: 0.5px;
+       /*width: 60%;
+          height: 700px;
+          overflow-y: scroll;
+       overflow-x: scroll;*/ 
+   }
+
+      
+      .borderless {
+          border: none;
+          box-shadow: none;
+   }
+
+
+.arrow {
+    color: #616161 
+}
+
+.arrow:hover {
+    color: #212121;
+}
+
+table.fixed {
+      table-layout: fixed;
+}
+
+td.content.fixed.small {
+    width: 50px
+}
+
+tr.new, tr.changed.active, tr.changed  {
+    background-color: #b2dfdb;
+}
+
+
+.noborder {
+    border: none;
+        padding: 0px
+}
+
+.expr.button {
+     font-size: 0.9em;
+     color:  rgba(207,216,220, 0.60);
+}
+.expr.button:hover {
+      font-size: 0.9em;
+     color: rgba(207,216,220, 0.90);
+}
+
+
+.ui.expr {
+    font-weight: 400;
+        font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+        font-size: 14px;
+    color: rgba(207,216,220, 0.90);
+  border: 1px solid rgba(207,216,220, 0.30);
+    padding: 5px;
+    background-color: #37474f 
+}
+
+.ui.button.arrow {
+    background-color: inherit;
+}

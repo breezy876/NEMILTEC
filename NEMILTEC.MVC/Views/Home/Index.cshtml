@@ -1,0 +1,55 @@
+﻿@using Newtonsoft.Json
+@using NEMILTEC.Shared.Classes.Serializers
+@model NEMILTEC.MVC.Models.PageModel
+
+@{
+
+    var modelJSON = JSONSerializer.Serialize(Model);
+}
+
+<h2>Home</h2>
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fermentum porta lorem eu convallis. Cras vel odio id ante pellentesque volutpat. Donec tortor ipsum, dictum vitae eros non, auctor semper ipsum. Sed felis dui, tincidunt ut accumsan in, cursus id neque. Ut molestie, nulla quis vestibulum mattis, mi arcu lacinia erat, vitae malesuada erat erat sit amet quam. In hac habitasse platea dictumst. Sed lectus purus, tristique eget imperdiet sit amet, imperdiet nec massa. Nullam nec feugiat tellus, ac egestas sapien. Mauris molestie, odio eu imperdiet ultricies, lorem elit ultrices arcu, vitae lobortis dolor diam ac leo. Vestibulum aliquam metus at laoreet tempor.
+
+Suspendisse at lacus nibh. Cras iaculis, leo vel finibus volutpat, quam quam egestas sem, non ultrices erat leo eu leo. Donec aliquet posuere erat nec blandit. Nulla fringilla tortor sed orci rutrum, id ultricies turpis aliquam. Ut vitae diam a lacus suscipit malesuada. Donec scelerisque ligula ac eros iaculis suscipit. Maecenas at imperdiet eros. Integer dapibus libero nibh, eu eleifend nunc sagittis ac.
+
+In neque justo, sodales quis bibendum eu, suscipit sit amet erat. Aenean non feugiat arcu. Etiam ut libero malesuada, vehicula diam et, laoreet purus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque lacinia laoreet urna, non sollicitudin nibh ullamcorper in. Nulla vel mattis orci. Nunc congue bibendum enim, a faucibus mauris.
+
+Pellentesque euismod erat faucibus, dapibus lorem ut, interdum enim. Duis sed odio non urna pellentesque hendrerit. Nullam dictum volutpat tellus, quis pretium nulla euismod eu. Etiam id mauris urna. Proin mauris nisl, molestie scelerisque tristique eget, scelerisque et enim. Phasellus in velit at augue imperdiet porta. Vestibulum rhoncus, nisi id condimentum aliquam, sapien augue pharetra mauris, id dictum lectus enim feugiat nisl. Nulla et mi ac urna congue cursus et eget justo. Sed dolor felis, tempus sit amet consectetur sed, lacinia et mauris. Proin in consequat arcu. Donec enim sapien, sagittis eget neque in, rutrum lobortis odio. Nulla facilisi. Cras a laoreet libero, in consequat ipsum. Ut rutrum, eros sit amet suscipit posuere, nulla massa porttitor velit, in facilisis metus nisl ut eros. Cras nec tincidunt augue, et placerat libero. Etiam eu felis justo.
+
+Sed mollis lectus sapien. Aenean id cursus lacus. Sed auctor sem mi, commodo posuere nisl pulvinar et. Curabitur lobortis facilisis elementum. Ut vestibulum mattis orci eget malesuada. Ut venenatis justo ac augue rhoncus lobortis. Maecenas tristique condimentum ipsum in faucibus. Nam porta convallis dolor eget vulputate. Nam sit amet dictum dolor, id malesuada augue. Fusce non sapien erat.
+
+Pellentesque sit amet vehicula massa. Maecenas vitae nisl a nibh mattis cursus quis eu ante. Morbi sed mi eu lacus pellentesque porta eu a eros. Suspendisse rutrum eget libero id tincidunt. Ut ex purus, suscipit id dui at, sagittis iaculis odio. Sed at tellus pretium, luctus erat eu, consectetur augue. Sed eu sollicitudin dui. Nunc laoreet velit vel lacus porttitor pharetra. Vestibulum tincidunt, sapien eu viverra lacinia, dolor erat mattis lectus, a efficitur neque orci porta magna.
+
+<div ng-app="mainApp">
+
+    <div ng-controller="MainController" id="dvController" ng-init="init(@modelJSON);">
+
+        <h3>@Model.Title</h3>
+
+
+        <div class="container" query>
+            @{
+                Html.RenderPartial("_PageContainerPartial", Model);
+            }
+        </div>
+
+    </div>
+
+</div>
+
+
+@section Scripts
+        {
+    <script src="~/Scripts/common.js" type="text/javascript"></script>
+
+    <script src="~/Scripts/mainApp.js" type="text/javascript"></script>
+    <script src="~/Scripts/main.js" type="text/javascript"></script>
+
+
+}
+
+
+
+
+

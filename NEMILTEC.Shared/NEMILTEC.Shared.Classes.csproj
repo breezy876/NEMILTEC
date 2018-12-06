@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F5447C08-B761-4937-9CE2-2E4B7A4AE7A6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NEMILTEC.Shared.Classes</RootNamespace>
+    <AssemblyName>NEMILTEC.Shared.Classes</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="protobuf-linq">
+      <HintPath>..\packages\protobuf-linq.0.3.0\lib\net40\protobuf-linq.dll</HintPath>
+    </Reference>
+    <Reference Include="protobuf-net">
+      <HintPath>..\packages\protobuf-net.2.0.0.668\lib\net40\protobuf-net.dll</HintPath>
+    </Reference>
+    <Reference Include="protobuf-net-data-light">
+      <HintPath>..\packages\protobuf-net-data-light.1.0.0\lib\net45\protobuf-net-data-light.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\DataEntity.cs" />
+    <Compile Include="Data\DataFactory.cs" />
+    <Compile Include="Data\DataRow.cs" />
+    <Compile Include="Data\DataTable.cs" />
+    <Compile Include="Helpers\DataHelpers.cs" />
+    <Compile Include="KeyValuePairEqualityComparer.cs" />
+    <Compile Include="IO\FileHelpers.cs" />
+    <Compile Include="Serializers\BinarySerializer.cs" />
+    <Compile Include="Serializers\JSONSerializer.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StringTypeConverter.cs" />
+    <Compile Include="TypeMapper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NEMILTEC.Domain\NEMILTEC.Domain.csproj">
+      <Project>{af68d6e1-3e10-4cf1-a5de-453b276bc052}</Project>
+      <Name>NEMILTEC.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NEMILTEC.Enums\NEMILTEC.Shared.Enums.csproj">
+      <Project>{b4115332-42f4-43c9-91ba-fff3c4409bb2}</Project>
+      <Name>NEMILTEC.Shared.Enums</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NEMILTEC.Interfaces.Domain\NEMILTEC.Interfaces.Domain.csproj">
+      <Project>{98090c31-8208-46d5-9abc-1c2ac73410ae}</Project>
+      <Name>NEMILTEC.Interfaces.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NEMILTEC.Interfaces.Service.Shared\NEMILTEC.Interfaces.Service.Shared.csproj">
+      <Project>{44d466a7-94a0-4b84-a571-6fb64894b60c}</Project>
+      <Name>NEMILTEC.Interfaces.Service.Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

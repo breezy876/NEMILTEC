@@ -1,0 +1,100 @@
+C:\Users\Admin\documents\visual studio 2013\Projects\NEMILTEC_TestApp\DataImporter\obj\Debug\NEMILTEC.Data.csprojResolveAssemblyReference.cache
+C:\Users\Admin\documents\visual studio 2013\Projects\NEMILTEC_TestApp\DataImporter\bin\Debug\NEMILTEC.Data.dll.config
+C:\Users\Admin\documents\visual studio 2013\Projects\NEMILTEC_TestApp\DataImporter\bin\Debug\NEMILTEC.Data.dll
+C:\Users\Admin\documents\visual studio 2013\Projects\NEMILTEC_TestApp\DataImporter\bin\Debug\NEMILTEC.Data.pdb
+C:\Users\Admin\documents\visual studio 2013\Projects\NEMILTEC_TestApp\DataImporter\bin\Debug\EntityFramework.dll
+C:\Users\Admin\documents\visual studio 2013\Projects\NEMILTEC_TestApp\DataImporter\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Admin\documents\visual studio 2013\Projects\NEMILTEC_TestApp\DataImporter\bin\Debug\NEMILTEC.Shared.dll
+C:\Users\Admin\documents\visual studio 2013\Projects\NEMILTEC_TestApp\DataImporter\bin\Debug\protobuf-linq.dll
+C:\Users\Admin\documents\visual studio 2013\Projects\NEMILTEC_TestApp\DataImporter\bin\Debug\protobuf-net-data-light.dll
+C:\Users\Admin\documents\visual studio 2013\Projects\NEMILTEC_TestApp\DataImporter\bin\Debug\protobuf-net.dll
+C:\Users\Admin\documents\visual studio 2013\Projects\NEMILTEC_TestApp\DataImporter\bin\Debug\System.Linq.Dynamic.dll
+C:\Users\Admin\documents\visual studio 2013\Projects\NEMILTEC_TestApp\DataImporter\bin\Debug\NEMILTEC.Shared.pdb
+C:\Users\Admin\documents\visual studio 2013\Projects\NEMILTEC_TestApp\DataImporter\bin\Debug\EntityFramework.xml
+C:\Users\Admin\documents\visual studio 2013\Projects\NEMILTEC_TestApp\DataImporter\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Admin\documents\visual studio 2013\Projects\NEMILTEC_TestApp\DataImporter\bin\Debug\protobuf-net.pdb
+C:\Users\Admin\documents\visual studio 2013\Projects\NEMILTEC_TestApp\DataImporter\bin\Debug\protobuf-net.xml
+C:\Users\Admin\documents\visual studio 2013\Projects\NEMILTEC_TestApp\DataImporter\bin\Debug\protobuf-net-data-light.xml
+C:\Users\Admin\documents\visual studio 2013\Projects\NEMILTEC_TestApp\DataImporter\obj\Debug\NEMILTEC.Data.dll
+C:\Users\Admin\documents\visual studio 2013\Projects\NEMILTEC_TestApp\DataImporter\obj\Debug\NEMILTEC.Data.pdb
+C:\Users\Admin\documents\visual studio 2013\Projects\NEMILTEC_TestApp\DataImporter\bin\Debug\Raven.Abstractions.dll
+C:\Users\Admin\documents\visual studio 2013\Projects\NEMILTEC_TestApp\DataImporter\bin\Debug\Raven.Client.Lightweight.dll
+C:\Users\Admin\documents\visual studio 2013\Projects\NEMILTEC_TestApp\DataImporter\bin\Debug\Raven.Abstractions.pdb
+C:\Users\Admin\documents\visual studio 2013\Projects\NEMILTEC_TestApp\DataImporter\bin\Debug\Raven.Abstractions.xml
+C:\Users\Admin\documents\visual studio 2013\Projects\NEMILTEC_TestApp\DataImporter\bin\Debug\Raven.Client.Lightweight.pdb
+C:\Users\Admin\documents\visual studio 2013\Projects\NEMILTEC_TestApp\DataImporter\bin\Debug\Raven.Client.Lightweight.xml
+G:\Chris Work\NEMILTEC_TestApp\DataImporter\bin\Debug\NEMILTEC.Data.dll.config
+G:\Chris Work\NEMILTEC_TestApp\DataImporter\bin\Debug\NEMILTEC.Data.dll
+G:\Chris Work\NEMILTEC_TestApp\DataImporter\bin\Debug\NEMILTEC.Data.pdb
+G:\Chris Work\NEMILTEC_TestApp\DataImporter\bin\Debug\EntityFramework.dll
+G:\Chris Work\NEMILTEC_TestApp\DataImporter\bin\Debug\EntityFramework.SqlServer.dll
+G:\Chris Work\NEMILTEC_TestApp\DataImporter\bin\Debug\NEMILTEC.Shared.dll
+G:\Chris Work\NEMILTEC_TestApp\DataImporter\bin\Debug\protobuf-linq.dll
+G:\Chris Work\NEMILTEC_TestApp\DataImporter\bin\Debug\protobuf-net-data-light.dll
+G:\Chris Work\NEMILTEC_TestApp\DataImporter\bin\Debug\protobuf-net.dll
+G:\Chris Work\NEMILTEC_TestApp\DataImporter\bin\Debug\Raven.Abstractions.dll
+G:\Chris Work\NEMILTEC_TestApp\DataImporter\bin\Debug\Raven.Client.Lightweight.dll
+G:\Chris Work\NEMILTEC_TestApp\DataImporter\bin\Debug\System.Linq.Dynamic.dll
+G:\Chris Work\NEMILTEC_TestApp\DataImporter\bin\Debug\NEMILTEC.Shared.pdb
+G:\Chris Work\NEMILTEC_TestApp\DataImporter\bin\Debug\EntityFramework.xml
+G:\Chris Work\NEMILTEC_TestApp\DataImporter\bin\Debug\EntityFramework.SqlServer.xml
+G:\Chris Work\NEMILTEC_TestApp\DataImporter\bin\Debug\protobuf-net.pdb
+G:\Chris Work\NEMILTEC_TestApp\DataImporter\bin\Debug\protobuf-net.xml
+G:\Chris Work\NEMILTEC_TestApp\DataImporter\bin\Debug\protobuf-net-data-light.xml
+G:\Chris Work\NEMILTEC_TestApp\DataImporter\bin\Debug\Raven.Abstractions.pdb
+G:\Chris Work\NEMILTEC_TestApp\DataImporter\bin\Debug\Raven.Abstractions.xml
+G:\Chris Work\NEMILTEC_TestApp\DataImporter\bin\Debug\Raven.Client.Lightweight.pdb
+G:\Chris Work\NEMILTEC_TestApp\DataImporter\bin\Debug\Raven.Client.Lightweight.xml
+G:\Chris Work\NEMILTEC_TestApp\DataImporter\obj\Debug\NEMILTEC.Data.csprojResolveAssemblyReference.cache
+G:\Chris Work\NEMILTEC_TestApp\DataImporter\obj\Debug\NEMILTEC.Data.dll
+G:\Chris Work\NEMILTEC_TestApp\DataImporter\obj\Debug\NEMILTEC.Data.pdb
+F:\Chris Work\NEMILTEC_TestApp\DataImporter\bin\Debug\NEMILTEC.Data.dll.config
+F:\Chris Work\NEMILTEC_TestApp\DataImporter\bin\Debug\NEMILTEC.Data.dll
+F:\Chris Work\NEMILTEC_TestApp\DataImporter\bin\Debug\NEMILTEC.Data.pdb
+F:\Chris Work\NEMILTEC_TestApp\DataImporter\bin\Debug\EntityFramework.dll
+F:\Chris Work\NEMILTEC_TestApp\DataImporter\bin\Debug\EntityFramework.SqlServer.dll
+F:\Chris Work\NEMILTEC_TestApp\DataImporter\bin\Debug\NEMILTEC.Shared.dll
+F:\Chris Work\NEMILTEC_TestApp\DataImporter\bin\Debug\protobuf-linq.dll
+F:\Chris Work\NEMILTEC_TestApp\DataImporter\bin\Debug\protobuf-net-data-light.dll
+F:\Chris Work\NEMILTEC_TestApp\DataImporter\bin\Debug\protobuf-net.dll
+F:\Chris Work\NEMILTEC_TestApp\DataImporter\bin\Debug\Raven.Abstractions.dll
+F:\Chris Work\NEMILTEC_TestApp\DataImporter\bin\Debug\Raven.Client.Lightweight.dll
+F:\Chris Work\NEMILTEC_TestApp\DataImporter\bin\Debug\System.Linq.Dynamic.dll
+F:\Chris Work\NEMILTEC_TestApp\DataImporter\bin\Debug\NEMILTEC.Shared.pdb
+F:\Chris Work\NEMILTEC_TestApp\DataImporter\bin\Debug\EntityFramework.xml
+F:\Chris Work\NEMILTEC_TestApp\DataImporter\bin\Debug\EntityFramework.SqlServer.xml
+F:\Chris Work\NEMILTEC_TestApp\DataImporter\bin\Debug\protobuf-net.pdb
+F:\Chris Work\NEMILTEC_TestApp\DataImporter\bin\Debug\protobuf-net.xml
+F:\Chris Work\NEMILTEC_TestApp\DataImporter\bin\Debug\protobuf-net-data-light.xml
+F:\Chris Work\NEMILTEC_TestApp\DataImporter\bin\Debug\Raven.Abstractions.pdb
+F:\Chris Work\NEMILTEC_TestApp\DataImporter\bin\Debug\Raven.Abstractions.xml
+F:\Chris Work\NEMILTEC_TestApp\DataImporter\bin\Debug\Raven.Client.Lightweight.pdb
+F:\Chris Work\NEMILTEC_TestApp\DataImporter\bin\Debug\Raven.Client.Lightweight.xml
+F:\Chris Work\NEMILTEC_TestApp\DataImporter\obj\Debug\NEMILTEC.Data.csprojResolveAssemblyReference.cache
+F:\Chris Work\NEMILTEC_TestApp\DataImporter\obj\Debug\NEMILTEC.Data.dll
+F:\Chris Work\NEMILTEC_TestApp\DataImporter\obj\Debug\NEMILTEC.Data.pdb
+C:\Users\CHRIS\Documents\Visual Studio 2015\Projects\NEMILTEC_TestApp\DataImporter\bin\Debug\NEMILTEC.Data.dll.config
+C:\Users\CHRIS\Documents\Visual Studio 2015\Projects\NEMILTEC_TestApp\DataImporter\bin\Debug\NEMILTEC.Data.dll
+C:\Users\CHRIS\Documents\Visual Studio 2015\Projects\NEMILTEC_TestApp\DataImporter\bin\Debug\NEMILTEC.Data.pdb
+C:\Users\CHRIS\Documents\Visual Studio 2015\Projects\NEMILTEC_TestApp\DataImporter\bin\Debug\EntityFramework.dll
+C:\Users\CHRIS\Documents\Visual Studio 2015\Projects\NEMILTEC_TestApp\DataImporter\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\CHRIS\Documents\Visual Studio 2015\Projects\NEMILTEC_TestApp\DataImporter\bin\Debug\NEMILTEC.Shared.dll
+C:\Users\CHRIS\Documents\Visual Studio 2015\Projects\NEMILTEC_TestApp\DataImporter\bin\Debug\protobuf-linq.dll
+C:\Users\CHRIS\Documents\Visual Studio 2015\Projects\NEMILTEC_TestApp\DataImporter\bin\Debug\protobuf-net-data-light.dll
+C:\Users\CHRIS\Documents\Visual Studio 2015\Projects\NEMILTEC_TestApp\DataImporter\bin\Debug\protobuf-net.dll
+C:\Users\CHRIS\Documents\Visual Studio 2015\Projects\NEMILTEC_TestApp\DataImporter\bin\Debug\Raven.Abstractions.dll
+C:\Users\CHRIS\Documents\Visual Studio 2015\Projects\NEMILTEC_TestApp\DataImporter\bin\Debug\Raven.Client.Lightweight.dll
+C:\Users\CHRIS\Documents\Visual Studio 2015\Projects\NEMILTEC_TestApp\DataImporter\bin\Debug\System.Linq.Dynamic.dll
+C:\Users\CHRIS\Documents\Visual Studio 2015\Projects\NEMILTEC_TestApp\DataImporter\bin\Debug\NEMILTEC.Shared.pdb
+C:\Users\CHRIS\Documents\Visual Studio 2015\Projects\NEMILTEC_TestApp\DataImporter\bin\Debug\EntityFramework.xml
+C:\Users\CHRIS\Documents\Visual Studio 2015\Projects\NEMILTEC_TestApp\DataImporter\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\CHRIS\Documents\Visual Studio 2015\Projects\NEMILTEC_TestApp\DataImporter\bin\Debug\protobuf-net.pdb
+C:\Users\CHRIS\Documents\Visual Studio 2015\Projects\NEMILTEC_TestApp\DataImporter\bin\Debug\protobuf-net.xml
+C:\Users\CHRIS\Documents\Visual Studio 2015\Projects\NEMILTEC_TestApp\DataImporter\bin\Debug\protobuf-net-data-light.xml
+C:\Users\CHRIS\Documents\Visual Studio 2015\Projects\NEMILTEC_TestApp\DataImporter\bin\Debug\Raven.Abstractions.pdb
+C:\Users\CHRIS\Documents\Visual Studio 2015\Projects\NEMILTEC_TestApp\DataImporter\bin\Debug\Raven.Abstractions.xml
+C:\Users\CHRIS\Documents\Visual Studio 2015\Projects\NEMILTEC_TestApp\DataImporter\bin\Debug\Raven.Client.Lightweight.pdb
+C:\Users\CHRIS\Documents\Visual Studio 2015\Projects\NEMILTEC_TestApp\DataImporter\bin\Debug\Raven.Client.Lightweight.xml
+C:\Users\CHRIS\Documents\Visual Studio 2015\Projects\NEMILTEC_TestApp\DataImporter\obj\Debug\NEMILTEC.Data.csprojResolveAssemblyReference.cache
+C:\Users\CHRIS\Documents\Visual Studio 2015\Projects\NEMILTEC_TestApp\DataImporter\obj\Debug\NEMILTEC.Data.dll
+C:\Users\CHRIS\Documents\Visual Studio 2015\Projects\NEMILTEC_TestApp\DataImporter\obj\Debug\NEMILTEC.Data.pdb

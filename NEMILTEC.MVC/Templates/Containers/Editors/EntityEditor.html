@@ -1,0 +1,131 @@
+﻿<div ng-if="container.IsEditable" class="ui attached segment blue-grey lighten-5" style="padding: 0px; width: 600px" ng-init="parent.EntityEditor.initContainer(container); ">
+    <table class="ui fixed small very compact collapsing table blue-grey lighten-5" style="border: none">
+        <tr>
+
+            <td ng-if="container.totalSelected > 0" class="content fixed small">&nbsp;</td>
+            <td ng-if="container.totalSelected > 0" class="content fixed small">&nbsp;</td>
+
+            <td ng-if="container.totalSelected > 0 && container.IsEditable">
+                <button class="smallest mini ui error button"
+                        ng-click="parent.EntityEditor.removeSelectedProperties(container)" title="Delete Selected">
+                    <i class="fa fa-times"></i>
+                </button>
+            </td>
+
+            <td ng-if="container.totalSelected > 0 && container.IsEditable">
+                <button class="smallest mini ui button"
+                        ng-click="parent.EntityEditor.toggleEditSelected(container)" ng-attr-title="{{parent.EntityEditor.getEditSelectedTitle(container)}}">
+                    <i ng-class="parent.EntityEditor.getEditSelectedClass(container)"></i>
+                </button>
+            </td>
+
+            <!--<td ng-bind="parent.getStatusText(container)"></td>
+            <td ng-bind="parent.getChangedText(container)"></td>
+            <td ng-bind="parent.getSelectedText(container)"></td>
+            <td ng-bind="parent.getFilterText(container)"></td>-->
+
+        </tr>
+    </table>
+</div>
+
+<table class="ui attached fixed small very compact collapsing table blue-grey lighten-5" style="width: 600px; border-bottom: none; border-top: none;">
+
+    <tr>
+        <td class="content fixed small" ng-if="container.IsEditable">
+            <div class="ui fitted checkbox">
+                <input ng-disabled="parent.getEntityPropTotal(container) == 0" type="checkbox" ng-click="parent.EntityEditor.toggleSelectAll(container)" ng-attr-title="{{parent.getSelectAllTitle(container)}}" />
+                <label></label>
+            </div>
+        </td>
+
+        <td class="content fixed small" ng-if="container.IsEditable">
+            <button class="smallest mini ui button success" ng-click="parent.EntityEditor.addNewProperty(container)" title="Add {{container.Name}}"><i class="fa fa-plus"></i></button>
+        </td>
+
+        <td>
+            <button class="smallest mini ui success button"
+                    ng-click="parent.EntityEditor.export(container)" title="Export">
+                <i class="glyphicon glyphicon-export"></i>
+            </button>
+        </td>
+
+        <!--<td class="content fixed small" ng-if="container.IsEditable">
+            <button type="file" accept="*.csv, *.xls, *.xlsx, *.txt" ngf-select="parent.uploadFiles(container, $file, $invalidFiles)"
+                    class="smallest mini ui success button" title="Import">
+                <i class="glyphicon glyphicon-import"></i>
+            </button>
+        </td>-->
+
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td ng-if="container.totalChanged > 0" class="content fixed small">&nbsp;</td>
+
+    </tr>
+
+</table>
+
+
+<div class="ui attached segment scrollable blue-grey lighten-5" style="width: 600px; padding: 0px;">
+
+    <table class="ui fixed small very compact collapsing table blue-grey lighten-5">
+        <tr ng-class="parent.EntityEditor.getPropertyClass(prop)" ng-repeat="(propIndex, prop) in  ::container.Data.Properties">
+
+            <td class="content fixed small" ng-if="container.IsEditable">
+                <div class="ui fitted checkbox">
+                    <input type="checkbox" ng-checked="prop.IsSelected" ng-click="parent.EntityEditor.toggleSelectProperty(container, prop)" ng-attr-title="{{parent.getSelectItemTitle(prop)}}"/>
+                    <label></label>
+                </div>
+            </td>
+
+            <td ng-if="!container.IsEditable || (!prop.IsEdit && !prop.IsNew)" class="ui small input"><label ng-if="prop.Name != 'ID'">{{prop.Name}}</label></td>
+
+            <td ng-if="container.IsEditable && (prop.IsEdit || prop.IsNew)"  class="ui small input">
+                <input name="{{prop.Name}}" type="text" placeholder="Name"
+                       ng-model="prop.Name" ng-change="parent.EntityEditor.propertyNameChanged(container, prop, prop.Name)">
+            </td>
+            
+            <td ng-if="!prop.IsEdit && !prop.IsNew" class="ui small input"><label>{{prop.Value}}</label></td>
+
+            <td class="ui small input" ng-if="prop.IsEdit || prop.IsNew">
+                <input name="{{prop.Name}}" ng-if="prop.Type === parent.DataType.String" type="text" placeholder="Value"
+                       ng-model="prop.Value" ng-change="parent.EntityEditor.propertyValueChanged(container, prop, prop.Value)">
+
+                <input name="{{prop.Name}}" ng-if="propName != 'ID' && prop.Type === parent.DataType.Number" type="text" placeholder="Value"
+                       ng-model="prop.Value" ng-change="parent.EntityEditor.propertyValueChanged(container, prop, prop.Value)">
+
+                <div name="{{prop.Name}}" ng-if="prop.Type === parent.DataType.List">
+                    <list-container container="container" parent="parent" prop-name="prop.Name" add-blank="false" is-filter="false" item="child"></list-container>
+                </div>
+            </td>
+
+            <td ng-if="container.IsEditable" class="content fixed small" ng-if="container.IsFixed && (!prop.IsNew || !parent.EntityEditor.isLastNewProperty(container))">
+                <button class="smallest mini ui error button"
+                        ng-click="parent.EntityEditor.removeProperty(container, prop)" title="Delete">
+                    <i class="fa fa-remove"></i>
+                </button>
+            </td>
+
+            <td class="content fixed small" ng-if="!prop.IsEdit && !prop.IsNew">
+                <button class="smallest mini ui button"
+                        ng-click="parent.EntityEditor.showEdit(container, prop);" title="Edit">
+                    <i class="fa fa-edit"></i>
+                </button>
+            </td>
+
+            <td class="content fixed small" ng-if="prop.IsEdit && !prop.IsNew">
+                <button class="smallest mini ui button"
+                        ng-click="parent.EntityEditor.hideEdit(container, prop);" title="Cancel">
+                    <i class="fa fa-minus-circle"></i>
+                </button>
+            </td>
+
+        </tr>
+    </table>
+
+</div>
+
+    <button class="ui mini success button"
+            ng-click="parent.Data.save(container)" title="Save">
+        Save
+    </button>
+

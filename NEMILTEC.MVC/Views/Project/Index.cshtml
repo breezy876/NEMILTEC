@@ -1,0 +1,71 @@
+﻿
+
+
+@model IEnumerable<NEMILTEC.MVC.Models.ProjectModel> 
+
+@{
+
+    var itemsJSON = Newtonsoft.Json.JsonConvert.SerializeObject(Model);
+}
+
+<h3>Projects</h3>
+
+<div ng-app="dataApp">
+    <div ng-controller="DataController" id="dvController" ng-init="Init('Project', @itemsJSON)">
+
+        <div class="ui grid">
+
+            <div class="two column row">
+             
+                <div class="column">
+                    <div class="pull-right">
+                        <a class="tiny ui button success" ng-click="showAddModal()"><i class="fa fa-plus">&nbsp;</i>Add</a>
+                    </div>
+
+                    <table class="ui small striped table">
+                        <thead>
+                            <tr>
+                                <td><b>ID</b></td>
+                                <td><b>Name</b></td>
+                                <td><b>Description</b></td>
+                                @*<td>Category</td>*@
+                                <td class="one wide column">&nbsp;</td>
+                                <td class="one wide column">&nbsp;</td>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr ng-repeat="item in items">
+                                <td>{{item.ID}}</td>
+                                <td>{{item.Name}}</td>
+                                <td>{{item.Description}}</td>
+                                @*<td>{{proj.CategoryName}}</td>*@
+                                <td class="one wide column"><a class="mini ui button" ng-click="remove(item.ID)"><li class="fa fa-times"></li></a></td>
+                                <td class="one wide column"><a class="mini ui button" ng-click="showEditModal()"><li class="fa fa-edit"></li></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+
+@section Scripts
+{
+    <script src="/Scripts/dataApp.js"></script>
+    <script>
+
+        $(document).ready(function () {
+
+        });
+
+    </script>
+    
+    
+}
+

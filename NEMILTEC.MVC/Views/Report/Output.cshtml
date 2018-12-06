@@ -1,0 +1,58 @@
+﻿
+
+
+@model NEMILTEC.MVC.Models.Query.QueryOutputModel
+
+@{
+
+    var modelJSON = Newtonsoft.Json.JsonConvert.SerializeObject(Model);
+}
+
+<div class="ui grid" ng-app="mainApp" >
+
+    <div ng-controller="MainController" id="dvController" ng-init="init(@modelJSON)" class="nine wide column">
+
+    <br/>
+        <h3>Query Output</h3>
+
+        <table class="ui small collapsing table root blue-grey lighten-5">
+
+            <thead>
+            <tr>
+                <td ng-repeat="(i, col) in model.Data.Columns track by $index"><b>{{col}}</b></td>
+                @*<td class="toolbar-button" ng-click="executeQuery(item)" title="Export To Excel Spreadsheet"><i class="fa fa-file-excel-o"></i></td>
+                <td class="toolbar-button" ng-click="executeQuery(item)" title="Copy CSV to Clipboard"><i class="fa fa-clipboard"></i></td>*@
+            </tr>
+            </thead>
+
+            <tbody>
+
+            <tr class="title" ng-repeat="(i, row) in model.Data.Rows track by $index">
+                <td ng-repeat="(i, cell) in row.Values">{{cell}}</td>
+            </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+    </div>
+
+
+        @section Scripts
+        {
+            <script src="~/Scripts/Query/main.js" type="text/javascript"></script>
+            <script src="~/Scripts/mainApp.js" type="text/javascript"></script>
+
+            <script type="text/javascript">
+
+                @*var json = '@modelJSON';
+
+                //$(document).ready(function () {
+                //    main();
+                //});*@
+
+            </script>
+        }
+
+
+

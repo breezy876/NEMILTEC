@@ -1,0 +1,231 @@
+﻿
+
+
+@model NEMILTEC.MVC.Models.IntelliFlows.IntelliFlowsModel
+
+@{
+
+    var modelJSON = Newtonsoft.Json.JsonConvert.SerializeObject(Model);
+}
+
+
+<div class="ui equal width grid" ng-app="mainApp">
+
+    <div ng-controller="MainController" id="dvController" ng-init="init(@modelJSON)" class="nine wide column">
+        
+        <br/>
+        <h3>IntelliFlows</h3>
+
+        <h5 class="ui top attached header blue-grey lighten-5">
+            Filter
+        </h5>
+
+        <div class="ui attached segment blue-grey lighten-5">
+                <div class="ui form blue-grey lighten-5">
+
+                    <div class="inline fields">
+                        
+                        <div class="field">
+                            <input type="text" placeholder="Name" ng-model="filter.Name">
+                        </div>
+
+                        <div class="field">
+                            <input type="text" placeholder="Description" ng-model="filter.Description">
+                        </div>
+
+                        <div class="field">
+                            <div class="ui selection dropdown">
+                                <input type="hidden" name="proj" >
+                                <i class="icon dropdown"></i>
+                                <div class="default text">Project</div>
+                                <div class="menu">
+                                    <div class="item" ng-click="clearProjFilter()" data-value="">All</div>
+                                    <div class="item" ng-click="setProjFilter(proj.Name)" data-value="{{proj.ID}}" ng-repeat="(i, proj) in model.Projects">{{proj.Name}}</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <input type="text" placeholder="Category" ng-model="filter.catName">
+                        </div>
+
+                        <div class="field">
+                            <button class="mini ui button" ng-click="clearFilter()" title="Clear"><i class="fa fa-times"></i></button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <table class="ui small collapsing table root blue-grey lighten-5">
+
+                <thead>
+                <tr>
+                    <td><button class="mini ui button success" ng-click="add()" title="Add IntelliFlow"><i class="fa fa-plus"></i></button></td>
+                    @*<td><b>ID</b></td>*@
+                    <td><b>Name</b></td>
+                    <td><b>Description</b></td>
+                    <td><b>Project</b></td>
+                    <td><b>Category</b></td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                </thead>
+
+                <tbody>
+
+                <tr class="title" data-row="{{i}}" data-id="{{item.ID}}" ng-repeat="(i, item) in model.IntelliFlows | orderBy:i | filter:{Name: filter.Name, Description: filter.Description, Project: {Name: filter.projName} , Category: {Name: filter.catName} }">
+                    <td ng-click="onExpandClick(item, i)" ng-attr-title="{{getToggleTitle(item)}}"><i ng-class="getToggleClass(item)"></i></td>
+                    @*<td>{{item.ID}}</td>*@
+
+                    <td ng-if="!item.IsEdit && !item.IsNew">{{item.Name}}</td>
+
+                    <td ng-if="item.IsEdit || item.IsNew">
+                        <div class="ui input">
+                            <input type="text" placeholder="Enter Name" class="ui form" value="{{item.Name}}" ng-model="item.Name"/>
+                        </div>
+                    </td>
+
+                    <td ng-if="!item.IsEdit && !item.IsNew">{{item.Description}}</td>
+
+                    <td ng-if="item.IsEdit || item.IsNew">
+                        <div class="ui input">
+                            <input type="text" placeholder="Enter Description" class="ui form" value="{{item.Description}}" ng-model="item.Description"/>
+                        </div>
+                    </td>
+
+                    <td ng-if="!item.IsEdit && !item.IsNew">{{item.Project.Name}}</td>
+
+                    <td ng-if="item.IsEdit || item.IsNew">
+                        <div class="ui dropdown search selection">
+                            <input type="hidden" name="project">
+
+                            <div class="text">{{item.Project.Name}}</div><i class="icon dropdown"></i>
+                            <div class="menu">
+                                <div class="item" ng-click="changeProject(item, proj)" data-value="{{proj.ID}}" ng-repeat="(i, proj) in model.Projects">{{proj.Name}}</div>
+                            </div>
+                        </div>
+                    </td>
+
+                    <td ng-if="!item.IsEdit && !item.IsNew">{{item.Category.Name}}</td>
+
+                    <td ng-if="item.IsEdit || item.IsNew">
+                        <div class="ui dropdown search selection">
+                            <input type="hidden" name="category">
+
+                            <div class="text">{{item.Category.Name}}</div><i class="icon dropdown"></i>
+                            <div class="menu">
+                                <div class="item" ng-click="changeCategory(item, cat)" data-value="{{cat.ID}}" ng-repeat="(i, cat) in model.Categories">{{cat.Name}}</div>
+                            </div>
+                        </div>
+                    </td>
+
+                    <td ng-if="item.IsEdit || item.IsNew" ><a class="mini ui button success" ng-click="save(item)" title="Save"><li class="fa fa-save"></li></a></td>
+
+                    <td ng-if="!item.IsNew || !isLastNewItem(null)" ><a class="mini ui button" ng-click="remove(item)" title="Delete"><li class="fa fa-times"></li></a></td>
+
+                    <td ng-if="item.IsEdit && !item.IsNew" ><a class="mini ui button" ng-click="hideEdit(item)" title="Cancel"><li class="fa fa-minus-circle"></li></a></td>
+
+                    <td ng-if="!item.IsEdit && !item.IsNew" ><a class="mini ui button" ng-click="showEdit(item)" title="Edit"><li class="fa fa-edit"></li></a></td>
+                </tr>
+
+                <tr class="content" data-row="{{i}}" data-id="{{parent.ID}}" hidden ng-repeat="(i, parent) in model.IntelliFlows | orderBy:i | filter:{Name: filter.Name, Description: filter.Description, Project: {Name: filter.projName}, Category: {Name: filter.catName} }">
+                    <td colspan="16">
+
+
+
+                        <table class="ui small collapsing table blue-grey lighten-5" data-parent-id="{{parent.ID}}">
+
+                            <thead>
+                            <tr>
+                                <td><button class="mini ui button success" ng-click="addItem(parent)" title="Add Item"><i class="fa fa-plus"></i></button></td>
+
+                                <td><b>Name</b></td>
+                                <td><b>Description</b></td>
+                                <td class="one wide column" title="Show Filters" ng-click="toggleFilters(parent)"><i class="fa fa-filter"></i></td>
+                                <td class="one wide column">&nbsp;</td>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+
+                            <tr class="filters child" data-parent-id="{{parent.ID}}" hidden>
+
+                                <td>&nbsp;</td>
+
+                                <td class="ui input">
+                                    <input type="text" placeholder="Name" ng-model="filter[parent.ID].Name">
+                                </td>
+
+                                <td class="ui input">
+                                    <input type="text" placeholder="Description" ng-model="filter[parent.ID].Description">
+                                </td>
+
+                                <td class="one wide column">
+                                    <button class="mini ui button" ng-click="clearChildFilter(parent)" title="Clear"><i class="fa fa-times"></i></button>
+                                </td>
+
+                                <td>&nbsp;</td>
+
+                            </tr>
+
+                            <tr data-row="{{i}}" data-id="{{item.ID}}" ng-repeat="(i, item) in getChildItems(parent) | orderBy: i | filter:childFilter(parent)">
+
+                                <td>&nbsp;</td>
+
+                                <td ng-if="!item.IsEdit && !item.IsNew">{{item.Name}}</td>
+
+                                <td ng-if="item.IsEdit || item.IsNew">
+                                    <div class="ui input">
+                                        <input type="text" placeholder="Enter Name" class="ui form" value="{{item.Name}}" ng-model="item.Name"/>
+                                    </div>
+                                </td>
+
+                                <td ng-if="!item.IsEdit && !item.IsNew">{{item.Description}}</td>
+
+                                <td ng-if="item.IsEdit || item.IsNew">
+                                    <div class="ui input">
+                                        <input type="text" placeholder="Enter Description" class="ui form" value="{{item.Description}}" ng-model="item.Description"/>
+                                    </div>
+                                </td>
+
+                                <td ng-if="item.IsEdit || item.IsNew" class="one wide column"><a class="mini ui button success" ng-click="saveItem(item)" title="Save"><i class="fa fa-save"></i></a></td>
+
+                                <td ng-if="!item.IsNew || !isLastNewItem(parent)" class="one wide column"><a class="mini ui button" ng-click="removeItem(item)" title="Delete"><i class="fa fa-times"></i></a></td>
+
+                                <td ng-if="item.IsEdit && !item.IsNew" class="one wide column"><a class="mini ui button" ng-click="hideEdit(item)" title="Cancel"><i class="fa fa-minus-circle"></i></a></td>
+
+                                <td ng-if="!item.IsEdit && !item.IsNew" class="one wide column"><a class="mini ui button" ng-click="showEdit(item)" title="Edit"><i class="fa fa-edit"></i></a></td>
+
+                            </tr>
+
+                            </tbody>
+                        </table>
+
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+        @section Scripts
+{
+            <script src="~/Scripts/mainApp.js" type="text/javascript"></script>
+            <script src="~/Scripts/IntelliFlows/main.js" type="text/javascript"></script>
+            <script type="text/javascript">
+
+                @*var json = '@modelJSON';
+
+                //$(document).ready(function () {
+                //    main();
+                //});*@
+
+            </script>
+        }
+
+
+

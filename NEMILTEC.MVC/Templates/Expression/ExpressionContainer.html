@@ -1,0 +1,24 @@
+﻿<span class="ui label visible expr" ng-if="model.Type == parent.Expressions.ExpressionType.Binary">
+
+    <expression container="model" parent="parent" model="model.Children[0]">
+    </expression>
+
+    {{model.ExpressionType.Name}}
+
+    <expression container="model" parent="parent" model="model.Children[1]">
+    </expression>
+
+    <i class="fa fa-remove expr button" title="Remove"></i>
+</span>
+
+
+<span class="ui label visible expr" ng-if="model.Type == parent.Expressions.ExpressionType.Function">
+
+    {{model.ExpressionType.Name}}
+
+    <expression container="container" parent="parent" model="child" ng-repeat="(childIndex, child) in  ::container.Children">
+    </expression>
+
+    <i class="fa fa-remove expr button" title="Remove"></i>
+</span>
+

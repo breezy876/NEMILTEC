@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{95727E7C-66CE-4266-8058-682E81F923E0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NEMILTEC.Service.Automation</RootNamespace>
+    <AssemblyName>NEMILTEC.Service.Automation</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="protobuf-linq">
+      <HintPath>..\packages\protobuf-linq.0.3.0\lib\net40\protobuf-linq.dll</HintPath>
+    </Reference>
+    <Reference Include="protobuf-net-data-light">
+      <HintPath>..\packages\protobuf-net-data-light.1.0.0\lib\net45\protobuf-net-data-light.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstract\AIntelliFlowAction.cs" />
+    <Compile Include="Abstract\AIntelliFlowItem.cs" />
+    <Compile Include="Abstract\AIntelliFlowRule.cs" />
+    <Compile Include="Concrete\Actions\ExecuteIntelliFlowAction.cs" />
+    <Compile Include="Concrete\Actions\ExecuteItemIntelliFlowAction.cs" />
+    <Compile Include="Concrete\Actions\FileSystemIntelliFlowAction.cs" />
+    <Compile Include="Concrete\Actions\ExecuteProcessIntelliFlowAction.cs" />
+    <Compile Include="Concrete\Actions\EvaluateIntelliFlowAction.cs" />
+    <Compile Include="Concrete\IntelliFlowActionFactory.cs" />
+    <Compile Include="Concrete\IntelliFlowFactory.cs" />
+    <Compile Include="Concrete\Actions\ImportDataFromFileIntelliFlowAction.cs" />
+    <Compile Include="Concrete\Actions\ExportDataToFileIntelliFlowAction.cs" />
+    <Compile Include="Concrete\Extensions.cs" />
+    <Compile Include="Concrete\IntelliFlowIterator.cs" />
+    <Compile Include="Concrete\IntelliFlowItemProcessor.cs" />
+    <Compile Include="Concrete\IntelliFlowIteratorFactory.cs" />
+    <Compile Include="Concrete\IntelliFlowRuleFactory.cs" />
+    <Compile Include="Concrete\Iterators\IntelliFlowCollectionIterator.cs" />
+    <Compile Include="Concrete\Iterators\IntelliFlowDataSetRowIterator.cs" />
+    <Compile Include="Concrete\Rules\IntelliFlowTrueFalseRule.cs" />
+    <Compile Include="Concrete\Rules\IntelliFlowCaseRule.cs" />
+    <Compile Include="Concrete\IntelliFlow.cs" />
+    <Compile Include="Concrete\Actions\CallWebServiceIntelliFlowAction.cs" />
+    <Compile Include="Concrete\Actions\DatabaseCommandIntelliFlowAction.cs" />
+    <Compile Include="Concrete\Actions\SendEmailIntelliFlowAction.cs" />
+    <Compile Include="Concrete\Actions\DatabaseQueryIntelliFlowAction.cs" />
+    <Compile Include="Enums\IntelliFlowActionType.cs" />
+    <Compile Include="Enums\IntelliFlowItemType.cs" />
+    <Compile Include="Enums\IntelliFlowIteratorType.cs" />
+    <Compile Include="Enums\IntelliFlowRuleType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataImporter\NEMILTEC.Service.Data.csproj">
+      <Project>{2aab2978-f77a-4539-ad98-5490b61cdc77}</Project>
+      <Name>NEMILTEC.Service.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NEMILTEC.Domain\NEMILTEC.Domain.csproj">
+      <Project>{af68d6e1-3e10-4cf1-a5de-453b276bc052}</Project>
+      <Name>NEMILTEC.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NEMILTEC.Enums\NEMILTEC.Shared.Enums.csproj">
+      <Project>{b4115332-42f4-43c9-91ba-fff3c4409bb2}</Project>
+      <Name>NEMILTEC.Shared.Enums</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NEMILTEC.Interfaces.Automation\NEMILTEC.Interfaces.Service.Automation.csproj">
+      <Project>{abc0b334-48b6-45ea-8787-d2b0c90e30f9}</Project>
+      <Name>NEMILTEC.Interfaces.Service.Automation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NEMILTEC.Interfaces.Domain\NEMILTEC.Interfaces.Domain.csproj">
+      <Project>{98090C31-8208-46D5-9ABC-1C2AC73410AE}</Project>
+      <Name>NEMILTEC.Interfaces.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NEMILTEC.Interfaces.Service.Shared\NEMILTEC.Interfaces.Service.Shared.csproj">
+      <Project>{44d466a7-94a0-4b84-a571-6fb64894b60c}</Project>
+      <Name>NEMILTEC.Interfaces.Service.Shared</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NEMILTEC.Interfaces\NEMILTEC.Interfaces.Service.Data.csproj">
+      <Project>{4189bf7b-c459-4f6b-8965-e93f53ba9ad9}</Project>
+      <Name>NEMILTEC.Interfaces.Service.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NEMILTEC.Phoenix.Reporting\NEMILTEC.Service.Reporting.csproj">
+      <Project>{96407979-d322-4b31-aeca-fe94301f6805}</Project>
+      <Name>NEMILTEC.Service.Reporting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NEMILTEC.Service.Shared\NEMILTEC.Service.Shared.csproj">
+      <Project>{4f9c3ae0-0b68-4f44-ab1d-8e3e039027b2}</Project>
+      <Name>NEMILTEC.Service.Shared</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NEMILTEC.Shared\NEMILTEC.Shared.Classes.csproj">
+      <Project>{f5447c08-b761-4937-9ce2-2e4b7a4ae7a6}</Project>
+      <Name>NEMILTEC.Shared.Classes</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Concrete\Actions\Collection\" />
+    <Folder Include="Concrete\Actions\DataEntity\" />
+    <Folder Include="Concrete\Actions\DataTable\" />
+    <Folder Include="Concrete\Actions\Expression\" />
+    <Folder Include="Concrete\Actions\Variable\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

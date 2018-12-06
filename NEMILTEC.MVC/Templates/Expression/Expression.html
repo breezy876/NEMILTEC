@@ -1,0 +1,12 @@
+﻿
+<span class="ui label visible expr" ng-if="model.Type === parent.Expressions.ExpressionType.Data">
+    {{parent.Expressions.getValue(model)}}
+    <i class="fa fa-remove expr button" title="Remove"></i>
+</span>
+
+<expression-container container="model" parent="parent" ng-if="model.Type !== parent.Expressions.ExpressionType.Data">
+</expression-container>
+
+
+
+

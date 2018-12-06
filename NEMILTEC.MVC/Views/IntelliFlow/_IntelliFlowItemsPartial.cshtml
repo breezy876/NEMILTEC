@@ -1,0 +1,69 @@
+﻿
+
+<table class="ui small collapsing table blue-grey lighten-5" data-parent-id="{{parent.ID}}">
+
+    <thead>
+        <tr>
+            <td><button class="mini ui button success" ng-click="addItem(parent)" title="Add Item"><i class="fa fa-plus"></i></button></td>
+
+            <td><b>Name</b></td>
+            <td><b>Description</b></td>
+            <td class="one wide column" title="Show Filters" ng-click="toggleFilters(parent)"><i class="fa fa-filter"></i></td>
+            <td class="one wide column">&nbsp;</td>
+        </tr>
+    </thead>
+
+    <tbody>
+
+    <tr class="filters child" data-parent-id="{{parent.ID}}" hidden>
+
+        <td>&nbsp;</td>
+
+        <td class="ui input">
+            <input type="text" placeholder="Name" ng-model="filter[parent.ID].Name">
+        </td>
+
+        <td class="ui input">
+            <input type="text" placeholder="Description" ng-model="filter[parent.ID].Description">
+        </td>
+
+        <td class="one wide column">
+            <button class="mini ui button" ng-click="clearChildFilter(parent)" title="Clear"><i class="fa fa-times"></i></button>
+        </td>
+
+        <td>&nbsp;</td>
+
+    </tr>
+
+    <tr data-row="{{i}}" data-id="{{item.ID}}" ng-repeat="(i, item) in getChildItems(parent) | orderBy: i | filter:childFilter(parent)">
+
+            <td>&nbsp;</td>
+
+            <td ng-if="!item.IsEdit && !item.IsNew">{{item.Name}}</td>
+
+            <td ng-if="item.IsEdit || item.IsNew">
+                <div class="ui input">
+                    <input type="text" placeholder="Enter Name" class="ui form" value="{{item.Name}}" ng-model="item.Name" />
+                </div>
+            </td>
+
+            <td ng-if="!item.IsEdit && !item.IsNew">{{item.Description}}</td>
+
+            <td ng-if="item.IsEdit || item.IsNew">
+                <div class="ui input">
+                    <input type="text" placeholder="Enter Description" class="ui form" value="{{item.Description}}" ng-model="item.Description" />
+                </div>
+            </td>
+
+            <td ng-if="item.IsEdit || item.IsNew" class="one wide column"><a class="mini ui button success" ng-click="saveItem(item)" title="Save"><i class="fa fa-save"></i></a></td>
+
+            <td ng-if="!item.IsNew || !isLastNewItem(parent)" class="one wide column"><a class="mini ui button" ng-click="removeItem(item)" title="Delete"><i class="fa fa-times"></i></a></td>
+
+            <td ng-if="item.IsEdit && !item.IsNew" class="one wide column"><a class="mini ui button" ng-click="hideEdit(item)" title="Cancel"><i class="fa fa-minus-circle"></i></a></td>
+
+            <td ng-if="!item.IsEdit && !item.IsNew" class="one wide column"><a class="mini ui button" ng-click="showEdit(item)" title="Edit"><i class="fa fa-edit"></i></a></td>
+
+        </tr>
+
+    </tbody>
+</table>

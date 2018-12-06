@@ -1,0 +1,336 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>protobuf-net-data-light</name>
+    </assembly>
+    <members>
+        <member name="T:ProtoBuf.Data.Light.DataSerializer">
+            <summary>
+            Serializes and deserializes an <see cref="T:System.Data.IDataReader"/> in binary format.
+            </summary>
+        </member>
+        <member name="M:ProtoBuf.Data.Light.DataSerializer.Serialize(System.IO.Stream,System.Data.IDataReader)">
+            <summary>
+            Serializes the <see cref="T:System.Data.IDataReader"/> to the given stream.
+            </summary>
+            <param name="stream">The stream to which the <see cref="T:System.Data.IDataReader"/> is to be serialized.</param>
+            <param name="reader">The <see cref="T:System.Data.IDataReader"/> to serialize.</param>
+            <exception cref="T:System.ArgumentNullException">The stream is null. -or-The reader is null.</exception>
+            <exception cref="T:System.NotSupportedException">A data type is not supperted.</exception>
+        </member>
+        <member name="M:ProtoBuf.Data.Light.DataSerializer.Deserialize(System.IO.Stream)">
+            <summary>
+            Deserializes the specified stream into an <see cref="T:System.Data.IDataReader"/>.
+            </summary>
+            <param name="stream">The stream from which to deserialize the <see cref="T:System.Data.IDataReader"/>.</param>
+            <returns>The <see cref="T:System.Data.IDataReader"/>.</returns>
+            <exception cref="T:System.IO.InvalidDataException">The stream has an unexpected format.</exception>
+        </member>
+        <member name="T:ProtoBuf.Data.Light.ProtoBufDataReader">
+            <summary>
+            Provides a way of reading a forward-only stream of a serialized <see cref="T:System.Data.IDataReader"/>.
+            </summary>
+        </member>
+        <member name="M:ProtoBuf.Data.Light.ProtoBufDataReader.Finalize">
+            <summary>
+            Allows an object to try to free resources and perform other cleanup operations before it is reclaimed 
+            by garbage collection.
+            </summary>
+        </member>
+        <member name="M:ProtoBuf.Data.Light.ProtoBufDataReader.Close">
+            <summary>
+            Closes the <see cref="T:ProtoBuf.Data.Light.ProtoBufDataReader"/> object.
+            </summary>
+        </member>
+        <member name="M:ProtoBuf.Data.Light.ProtoBufDataReader.GetSchemaTable">
+            <summary>
+            Returns a <see cref="T:System.Data.DataTable"/> that describes the column metadata of the
+            <see cref="T:ProtoBuf.Data.Light.ProtoBufDataReader"/>.
+            </summary>
+            <returns>A <see cref="T:System.Data.DataTable"/> that describes the column metadata.</returns>
+            <exception cref="T:System.InvalidOperationException">The <see cref="T:ProtoBuf.Data.Light.ProtoBufDataReader"/> is closed.</exception>
+        </member>
+        <member name="M:ProtoBuf.Data.Light.ProtoBufDataReader.NextResult">
+            <summary>
+            Advances the data reader to the next result.
+            </summary>
+            <returns>true if there are more result sets; otherwise false.</returns>
+            <exception cref="T:System.InvalidOperationException">The <see cref="T:ProtoBuf.Data.Light.ProtoBufDataReader"/> is closed.</exception>
+        </member>
+        <member name="M:ProtoBuf.Data.Light.ProtoBufDataReader.Read">
+            <summary>
+            Advances the <see cref="T:ProtoBuf.Data.Light.ProtoBufDataReader"/> to the next record.
+            </summary>
+            <returns>true if there are more rows; otherwise false.</returns>
+            <exception cref="T:System.InvalidOperationException">The <see cref="T:ProtoBuf.Data.Light.ProtoBufDataReader"/> is closed.</exception>
+        </member>
+        <member name="M:ProtoBuf.Data.Light.ProtoBufDataReader.Dispose">
+            <summary>
+            Releases all resources used by the current instance of the <see cref="T:ProtoBuf.Data.Light.ProtoBufDataReader"/>
+            class.
+            </summary>
+        </member>
+        <member name="M:ProtoBuf.Data.Light.ProtoBufDataReader.GetBoolean(System.Int32)">
+            <summary>
+            Gets the value of the specified column as a Boolean.
+            </summary>
+            <param name="i">The zero-based column ordinal.</param>
+            <returns>The value of the column.</returns>
+            <exception cref="T:System.InvalidOperationException">The <see cref="T:ProtoBuf.Data.Light.ProtoBufDataReader"/> is closed.</exception>
+            <exception cref="T:System.IndexOutOfRangeException">The index passed was outside the range of 0 through System.Data.IDataRecord.FieldCount.</exception>
+            <exception cref="T:System.InvalidCastException">The specified cast is not valid.</exception>
+        </member>
+        <member name="M:ProtoBuf.Data.Light.ProtoBufDataReader.GetByte(System.Int32)">
+            <summary>
+            Gets the value of the specified column as a byte.
+            </summary>
+            <param name="i">The zero-based column ordinal.</param>
+            <returns>The value of the column.</returns>
+            <exception cref="T:System.InvalidOperationException">The <see cref="T:ProtoBuf.Data.Light.ProtoBufDataReader"/> is closed.</exception>
+            <exception cref="T:System.IndexOutOfRangeException">The index passed was outside the range of 0 through System.Data.IDataRecord.FieldCount.</exception>
+            <exception cref="T:System.InvalidCastException">The specified cast is not valid.</exception>
+        </member>
+        <member name="M:ProtoBuf.Data.Light.ProtoBufDataReader.GetBytes(System.Int32,System.Int64,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Reads a stream of bytes from the specified column offset into the buffer
+            an array starting at the given buffer offset.
+            </summary>
+            <param name="i">The zero-based column ordinal.</param>
+            <param name="fieldOffset">The index within the field from which to begin the read operation.</param>
+            <param name="buffer">The buffer into which to read the stream of bytes.</param>
+            <param name="bufferOffset">The index within the buffer where the write operation is to start.</param>
+            <param name="length">The maximum length to copy into the buffer.</param>
+            <returns>The actual number of bytes read.</returns>
+            <exception cref="T:System.InvalidOperationException">The <see cref="T:ProtoBuf.Data.Light.ProtoBufDataReader"/> is closed.</exception>
+            <exception cref="T:System.IndexOutOfRangeException">The index passed was outside the range of 0 through System.Data.IDataRecord.FieldCount.</exception>
+            <exception cref="T:System.InvalidCastException">The specified cast is not valid.</exception>
+        </member>
+        <member name="M:ProtoBuf.Data.Light.ProtoBufDataReader.GetChar(System.Int32)">
+            <summary>
+            Gets the character value of the specified column.
+            </summary>
+            <param name="i">The zero-based column ordinal.</param>
+            <returns>The character value of the specified column.</returns>
+            <exception cref="T:System.InvalidOperationException">The <see cref="T:ProtoBuf.Data.Light.ProtoBufDataReader"/> is closed.</exception>
+            <exception cref="T:System.IndexOutOfRangeException">The index passed was outside the range of 0 through System.Data.IDataRecord.FieldCount.</exception>
+            <exception cref="T:System.InvalidCastException">The specified cast is not valid.</exception>
+        </member>
+        <member name="M:ProtoBuf.Data.Light.ProtoBufDataReader.GetChars(System.Int32,System.Int64,System.Char[],System.Int32,System.Int32)">
+            <summary>
+            Reads a stream of characters from the specified column offset into the buffer
+            as an array starting at the given buffer offset.
+            </summary>
+            <param name="i">The zero-based column ordinal.</param>
+            <param name="fieldOffset">The index within the field from which to begin the read operation.</param>
+            <param name="buffer">The buffer into which to read the stream of bytes.</param>
+            <param name="bufferOffset">The index within the buffer where the write operation is to start.</param>
+            <param name="length">The maximum length to copy into the buffer.</param>
+            <returns>The actual number of characters read.</returns>
+            <exception cref="T:System.InvalidOperationException">The <see cref="T:ProtoBuf.Data.Light.ProtoBufDataReader"/> is closed.</exception>
+            <exception cref="T:System.IndexOutOfRangeException">The index passed was outside the range of 0 through System.Data.IDataRecord.FieldCount.</exception>
+            <exception cref="T:System.InvalidCastException">The specified cast is not valid.</exception>
+        </member>
+        <member name="M:ProtoBuf.Data.Light.ProtoBufDataReader.GetDataTypeName(System.Int32)">
+            <summary>
+            Gets a string representing the data type of the specified column.
+            </summary>
+            <param name="i">The zero-based ordinal position of the column to find.</param>
+            <returns>The string representing the data type of the specified column.</returns>
+            <exception cref="T:System.InvalidOperationException">The <see cref="T:ProtoBuf.Data.Light.ProtoBufDataReader"/> is closed.</exception>
+            <exception cref="T:System.IndexOutOfRangeException">The index passed was outside the range of 0 through System.Data.IDataRecord.FieldCount.</exception>
+        </member>
+        <member name="M:ProtoBuf.Data.Light.ProtoBufDataReader.GetDateTime(System.Int32)">
+            <summary>
+            Gets the date and time data value of the specified field.
+            </summary>
+            <param name="i">The zero-based column ordinal.</param>
+            <returns>The date and time data value of the specified field.</returns>
+            <exception cref="T:System.InvalidOperationException">The <see cref="T:ProtoBuf.Data.Light.ProtoBufDataReader"/> is closed.</exception>
+            <exception cref="T:System.IndexOutOfRangeException">The index passed was outside the range of 0 through System.Data.IDataRecord.FieldCount.</exception>
+            <exception cref="T:System.InvalidCastException">The specified cast is not valid.</exception>
+        </member>
+        <member name="M:ProtoBuf.Data.Light.ProtoBufDataReader.GetDecimal(System.Int32)">
+            <summary>
+            Gets the fixed-position numeric value of the specified field.
+            </summary>
+            <param name="i">The zero-based column ordinal.</param>
+            <returns>The fixed-position numeric value of the specified field.</returns>
+            <exception cref="T:System.InvalidOperationException">The <see cref="T:ProtoBuf.Data.Light.ProtoBufDataReader"/> is closed.</exception>
+            <exception cref="T:System.IndexOutOfRangeException">The index passed was outside the range of 0 through System.Data.IDataRecord.FieldCount.</exception>
+            <exception cref="T:System.InvalidCastException">The specified cast is not valid.</exception>
+        </member>
+        <member name="M:ProtoBuf.Data.Light.ProtoBufDataReader.GetDouble(System.Int32)">
+            <summary>
+            Gets the double-precision floating point number of the specified field.
+            </summary>
+            <param name="i">The zero-based column ordinal.</param>
+            <returns>The double-precision floating point number of the specified field.</returns>
+            <exception cref="T:System.InvalidOperationException">The <see cref="T:ProtoBuf.Data.Light.ProtoBufDataReader"/> is closed.</exception>
+            <exception cref="T:System.IndexOutOfRangeException">The index passed was outside the range of 0 through System.Data.IDataRecord.FieldCount.</exception>
+            <exception cref="T:System.InvalidCastException">The specified cast is not valid.</exception>
+        </member>
+        <member name="M:ProtoBuf.Data.Light.ProtoBufDataReader.GetFieldType(System.Int32)">
+            <summary>
+            Gets the <see cref="T:System.Type"/> that is the data type of the object.
+            </summary>
+            <param name="i">The zero-based column ordinal.</param>
+            <returns>The <see cref="T:System.Type"/> that is the data type of the object. If the type does not
+            exist on the client, in the case of a User-Defined Type (UDT) returned from
+            the database, GetFieldType returns null.</returns>
+            <exception cref="T:System.InvalidOperationException">The <see cref="T:ProtoBuf.Data.Light.ProtoBufDataReader"/> is closed.</exception>
+            <exception cref="T:System.IndexOutOfRangeException">The index passed was outside the range of 0 through System.Data.IDataRecord.FieldCount.</exception>
+        </member>
+        <member name="M:ProtoBuf.Data.Light.ProtoBufDataReader.GetFloat(System.Int32)">
+            <summary>
+            Gets the single-precision floating point number of the specified field.
+            </summary>
+            <param name="i">The zero-based column ordinal.</param>
+            <returns>The single-precision floating point number of the specified field.</returns>
+            <exception cref="T:System.InvalidOperationException">The <see cref="T:ProtoBuf.Data.Light.ProtoBufDataReader"/> is closed.</exception>
+            <exception cref="T:System.IndexOutOfRangeException">The index passed was outside the range of 0 through System.Data.IDataRecord.FieldCount.</exception>
+            <exception cref="T:System.InvalidCastException">The specified cast is not valid.</exception>
+        </member>
+        <member name="M:ProtoBuf.Data.Light.ProtoBufDataReader.GetGuid(System.Int32)">
+            <summary>
+            Returns the GUID value of the specified field.
+            </summary>
+            <param name="i">The zero-based column ordinal.</param>
+            <returns>The GUID value of the specified field.</returns>
+            <exception cref="T:System.InvalidOperationException">The <see cref="T:ProtoBuf.Data.Light.ProtoBufDataReader"/> is closed.</exception>
+            <exception cref="T:System.IndexOutOfRangeException">The index passed was outside the range of 0 through System.Data.IDataRecord.FieldCount.</exception>
+            <exception cref="T:System.InvalidCastException">The specified cast is not valid.</exception>
+        </member>
+        <member name="M:ProtoBuf.Data.Light.ProtoBufDataReader.GetInt16(System.Int32)">
+            <summary>
+            Gets the 16-bit signed integer value of the specified field.
+            </summary>
+            <param name="i">The zero-based column ordinal.</param>
+            <returns>The 16-bit signed integer value of the specified field.</returns>
+            <exception cref="T:System.InvalidOperationException">The <see cref="T:ProtoBuf.Data.Light.ProtoBufDataReader"/> is closed.</exception>
+            <exception cref="T:System.IndexOutOfRangeException">The index passed was outside the range of 0 through System.Data.IDataRecord.FieldCount.</exception>
+            <exception cref="T:System.InvalidCastException">The specified cast is not valid.</exception>
+        </member>
+        <member name="M:ProtoBuf.Data.Light.ProtoBufDataReader.GetInt32(System.Int32)">
+            <summary>
+            Gets the 32-bit signed integer value of the specified field.
+            </summary>
+            <param name="i">The zero-based column ordinal.</param>
+            <returns>The 32-bit signed integer value of the specified field.</returns>
+            <exception cref="T:System.InvalidOperationException">The <see cref="T:ProtoBuf.Data.Light.ProtoBufDataReader"/> is closed.</exception>
+            <exception cref="T:System.IndexOutOfRangeException">The index passed was outside the range of 0 through System.Data.IDataRecord.FieldCount.</exception>
+            <exception cref="T:System.InvalidCastException">The specified cast is not valid.</exception>
+        </member>
+        <member name="M:ProtoBuf.Data.Light.ProtoBufDataReader.GetInt64(System.Int32)">
+            <summary>
+            Gets the 64-bit signed integer value of the specified field.
+            </summary>
+            <param name="i">The zero-based column ordinal.</param>
+            <returns>The 64-bit signed integer value of the specified field.</returns>
+            <exception cref="T:System.InvalidOperationException">The <see cref="T:ProtoBuf.Data.Light.ProtoBufDataReader"/> is closed.</exception>
+            <exception cref="T:System.IndexOutOfRangeException">The index passed was outside the range of 0 through System.Data.IDataRecord.FieldCount.</exception>
+            <exception cref="T:System.InvalidCastException">The specified cast is not valid.</exception>
+        </member>
+        <member name="M:ProtoBuf.Data.Light.ProtoBufDataReader.GetName(System.Int32)">
+            <summary>
+            Gets the name of the specified column.
+            </summary>
+            <param name="i">The zero-based column ordinal.</param>
+            <returns>The name of the specified column.</returns>
+            <exception cref="T:System.InvalidOperationException">The <see cref="T:ProtoBuf.Data.Light.ProtoBufDataReader"/> is closed.</exception>
+            <exception cref="T:System.IndexOutOfRangeException">The index passed was outside the range of 0 through System.Data.IDataRecord.FieldCount.</exception>
+        </member>
+        <member name="M:ProtoBuf.Data.Light.ProtoBufDataReader.GetOrdinal(System.String)">
+            <summary>
+            Gets the column ordinal, given the name of the column.
+            </summary>
+            <param name="name">The name of the column.</param>
+            <returns>The zero-based column ordinal.</returns>
+            <exception cref="T:System.InvalidOperationException">The <see cref="T:ProtoBuf.Data.Light.ProtoBufDataReader"/> is closed.</exception>
+            <exception cref="T:System.IndexOutOfRangeException">No column with the specified name was found.</exception>
+        </member>
+        <member name="M:ProtoBuf.Data.Light.ProtoBufDataReader.GetString(System.Int32)">
+            <summary>
+            Gets the string value of the specified field.
+            </summary>
+            <param name="i">The zero-based column ordinal.</param>
+            <returns>The string value of the specified field.</returns>
+            <exception cref="T:System.InvalidOperationException">The <see cref="T:ProtoBuf.Data.Light.ProtoBufDataReader"/> is closed.</exception>
+            <exception cref="T:System.IndexOutOfRangeException">The index passed was outside the range of 0 through System.Data.IDataRecord.FieldCount.</exception>
+            <exception cref="T:System.InvalidCastException">The specified cast is not valid.</exception>
+        </member>
+        <member name="M:ProtoBuf.Data.Light.ProtoBufDataReader.GetValue(System.Int32)">
+            <summary>
+            Return the value of the specified field.
+            </summary>
+            <param name="i">The zero-based column ordinal.</param>
+            <returns>The <see cref="T:System.Object"/> which will contain the field value upon return.</returns>
+            <exception cref="T:System.InvalidOperationException">The <see cref="T:ProtoBuf.Data.Light.ProtoBufDataReader"/> is closed.</exception>
+            <exception cref="T:System.IndexOutOfRangeException">The index passed was outside the range of 0 through System.Data.IDataRecord.FieldCount.</exception>
+        </member>
+        <member name="M:ProtoBuf.Data.Light.ProtoBufDataReader.GetValues(System.Object[])">
+            <summary>
+            Populates an array of objects with the column values of the current row.
+            </summary>
+            <param name="values">An array of <see cref="T:System.Object"/> into which to copy the attribute columns.</param>
+            <returns>The number of instances of <see cref="T:System.Object"/> in the array.</returns>
+            <exception cref="T:System.ArgumentNullException">values is null.</exception>
+            <exception cref="T:System.InvalidOperationException">The <see cref="T:ProtoBuf.Data.Light.ProtoBufDataReader"/> is closed.</exception>
+        </member>
+        <member name="M:ProtoBuf.Data.Light.ProtoBufDataReader.IsDBNull(System.Int32)">
+            <summary>
+            Return whether the specified field is set to null.
+            </summary>
+            <param name="i">The zero-based column ordinal.</param>
+            <returns>true if the specified field is set to null; otherwise, false.</returns>
+            <exception cref="T:System.InvalidOperationException">The <see cref="T:ProtoBuf.Data.Light.ProtoBufDataReader"/> is closed.</exception>
+            <exception cref="T:System.IndexOutOfRangeException">The index passed was outside the range of 0 through System.Data.IDataRecord.FieldCount.</exception>
+        </member>
+        <member name="P:ProtoBuf.Data.Light.ProtoBufDataReader.Depth">
+            <summary>
+            Gets a value that indicates the depth of nesting for the current row.
+            </summary>
+            <returns>The depth of nesting for the current row.</returns>
+        </member>
+        <member name="P:ProtoBuf.Data.Light.ProtoBufDataReader.IsClosed">
+            <summary>
+            Retrieves a Boolean value that indicates whether the specified <see cref="T:ProtoBuf.Data.Light.ProtoBufDataReader"/> 
+            instance has been closed.
+            </summary>
+        </member>
+        <member name="P:ProtoBuf.Data.Light.ProtoBufDataReader.RecordsAffected">
+            <summary>
+            Gets the number of rows changed, inserted, or deleted by execution of the
+            SQL statement.
+            </summary>
+            <returns>The number of rows changed, inserted, or deleted; 0 if no rows were affected
+            or the statement failed; and -1 for SELECT statements.</returns>
+        </member>
+        <member name="P:ProtoBuf.Data.Light.ProtoBufDataReader.FieldCount">
+            <summary>
+            Gets the number of columns in the current row.
+            </summary>
+            <returns>When not positioned in a valid recordset, 0; otherwise, the number of columns
+            in the current record.</returns>
+        </member>
+        <member name="P:ProtoBuf.Data.Light.ProtoBufDataReader.Item(System.String)">
+            <summary>
+            Gets the value of the specified column in its native format given the column
+            name.
+            </summary>
+            <param name="name">The column name.</param>
+            <returns>The value of the specified column in its native format.</returns>
+            <exception cref="T:System.InvalidOperationException">The <see cref="T:ProtoBuf.Data.Light.ProtoBufDataReader"/> is closed.</exception>
+            <exception cref="T:System.IndexOutOfRangeException">No column with the specified name was found.</exception>
+        </member>
+        <member name="P:ProtoBuf.Data.Light.ProtoBufDataReader.Item(System.Int32)">
+            <summary>
+            Gets the value of the specified column in its native format given the column
+            ordinal.
+            </summary>
+            <param name="i">The zero-based column ordinal.</param>
+            <returns>The value of the specified column in its native format.</returns>
+            <exception cref="T:System.InvalidOperationException">The <see cref="T:ProtoBuf.Data.Light.ProtoBufDataReader"/> is closed.</exception>
+            <exception cref="T:System.IndexOutOfRangeException">The index passed was outside the range of 0 through System.Data.IDataRecord.FieldCount.</exception>
+        </member>
+    </members>
+</doc>

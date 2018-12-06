@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEMILTEC Business Solutions</title>
+    @Styles.Render("~/Content/css")
+
+    @Scripts.Render("~/bundles/jquery")
+
+    @Scripts.Render("~/bundles/jqueryval")
+
+    @Scripts.Render("~/bundles/angular")
+
+    @Scripts.Render("~/bundles/angularModules")
+
+    @Scripts.Render("~/bundles/Util")
+
+    @Scripts.Render("~/bundles/semantic")
+
+
+</head>
+
+<body >
+
+
+        @*<div class="ui inverted menu">
+  
+                <a class="item" href="javascript:void(0)" id="sidebar-nav-toggle">Test</a>
+
+
+            @Html.Partial("_LoginPartial")
+        </div>*@
+
+
+        <div class="ui sidebar inverted vertical menu visible">
+                <a class="item" href="/Admin"><span class="fa fa-wrench"></span> Admin</a>
+                <a class="item" href="/Project"><span class="fa fa-list-alt"></span> Projects</a>
+                @*<a class="item" href="/Task"><span class="fa fa-tasks"></span> Tasks</a>*@
+            <a class="item" href="/Data"><span class="fa fa-table"></span> Data</a>
+            <a class="item" href="/Query"><span class="fa fa-filter"></span> Queries</a>
+               <a class="item" href="/IntelliFlow"><span class="fa fa-gears"></span> IntelliFlows</a>
+                <a class="item" href="/Expression"><span class="fa"><b>&Sigma;</b></span> Expressions</a>
+                <a class="item" href="/Report"><span class="fa fa-bar-chart"></span> Reports</a>
+                <a class="item" href="/Form"><span class="fa fa-newspaper-o"></span> Forms</a>
+               <a class="item" href="/Document"><span class="fa fa-file"></span> Documents</a>
+                <a class="item" href="/Services/Console"><span class="fa fa-terminal"></span> Console</a>
+        </div>
+
+        <div class="body-content pusher">
+            @RenderBody()
+        </div>
+
+        <hr />
+
+        <footer>
+            <p>&copy; @DateTime.Now.Year - NEMILTEC</p>
+        </footer>
+
+
+
+        @RenderSection("scripts", required: false)
+
+<script>
+    $(document).ready(function() {
+        $('.sidebar')
+            .sidebar();
+    })
+  
+</script>
+
+
+</body>
+</html>

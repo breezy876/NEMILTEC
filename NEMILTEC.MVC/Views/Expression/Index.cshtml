@@ -1,0 +1,84 @@
+﻿
+
+
+@using Newtonsoft.Json
+@model NEMILTEC.MVC.Models.PageModel
+
+@{
+
+    var modelJSON = Newtonsoft.Json.JsonConvert.SerializeObject(Model, new JsonSerializerSettings
+    {
+        TypeNameHandling = TypeNameHandling.Objects
+    });
+}
+
+<div ng-app="mainApp">
+
+    <div ng-controller="MainController" id="dvController" ng-init="init(@modelJSON);">
+
+        <h3>@Model.Title</h3>
+
+        @*<h4>{{model.Test.Properties['Test1'].Name}}</h4>
+            <h4>{{model.Test.Properties['Test1'].Value}}</h4>*@
+        <div class="container">
+            @*@{
+                Html.RenderPartial("_PageContainerPartial", Model);
+            }*@
+
+            <span class="ui label visible expr">
+                <span class="ui label visible expr">
+                    <span class="ui label transition visible expr">
+                        <span class="ui label transition visible expr">
+                            5
+                            <i class="fa fa-remove expr button" title="Remove"></i>
+                        </span>
+                        +
+                        <span class="ui label transition visible expr">
+                            4
+                            <i class="fa fa-remove expr button" title="Remove"></i>
+                        </span>
+                        <i class="fa fa-remove expr button" title="Remove"></i>
+                    </span>
+                    >
+                    <span class="ui label transition visible expr">
+                        10
+                        <i class="fa fa-remove expr button" title="Remove"></i>
+                    </span>
+                    <i class="fa fa-remove expr button" title="Remove"></i>
+                </span>
+                AND
+                <span class="ui label visible expr">
+                        <span class="ui label transition visible expr">
+                            5
+                            <i class="fa fa-remove expr button" title="Remove"></i>
+                        </span>
+                    <
+                    <span class="ui label transition visible expr">
+                        4
+                        <i class="fa fa-remove expr button" title="Remove"></i>
+                    </span>
+                    <i class="fa fa-remove expr button" title="Remove"></i>
+                </span>
+                <i class="fa fa-remove expr button" title="Remove"></i>
+            </span>
+           
+
+        </div>
+
+    </div>
+
+</div>
+
+
+@section Scripts
+        {
+    <script src="~/Scripts/common.js" type="text/javascript"></script>
+
+    <script src="~/Scripts/mainApp.js" type="text/javascript"></script>
+    <script src="~/Scripts/main.js" type="text/javascript"></script>
+
+
+}
+
+
+

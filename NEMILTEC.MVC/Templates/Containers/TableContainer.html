@@ -1,0 +1,213 @@
+﻿
+<div ng-if="container.IsVisible" ng-init="parent.initContainer(container); parent.loadItems(container, 0, container.MaxItems, true, doLoad)">
+
+    <div class="ui attached segment blue-grey lighten-5 filters" style="width: 1200px;"
+         ng-if="container.ShowFilters">
+        <label>Filter</label>
+        <div style="padding: 10px" class="ui small input" ng-repeat="(filterName, filter) in ::container.Filters" ng-init="filterType = container.Properties[filterName].Type">
+            <input type="text" class="filter" ng-if="filterType === parent.DataType.String" placeholder="{{filterName}}" ng-model="filter.Value" ng-change="parent.changeFilter(container, filterName, filter.Value)">
+            <input type="text" class="filter" ng-if="filterType === parent.DataType.Number" placeholder="{{filterName}}" ng-model="filter.Value" ng-change="parent.changeFilter(container, filterName, filter.Value)">
+            <div ng-if="filterType === parent.DataType.List">
+                <list-container container="container" parent="parent" prop-name="filterName" add-blank="true" is-filter="true"></list-container>
+            </div>
+        </div>
+        <button class="smallest mini ui error button" ng-click="parent.clearFilters(container)" title="Clear"><i class="fa fa-times"></i></button>
+    </div>
+
+
+    <div class="ui attached segment blue-grey lighten-5" style="width: 1200px; padding: 0px;">
+        <table class="ui fixed small very compact collapsing table blue-grey lighten-5" style="border:none">
+            <tr>
+
+
+                <td ng-if="container.totalSelected > 0" class="content fixed small">&nbsp;</td>
+                <td ng-if="container.totalSelected > 0" class="content fixed small">&nbsp;</td>
+
+                <td ng-if="container.totalSelected > 0 && container.IsEditable">
+                    <button class="smallest mini ui error button"
+                            ng-click="parent.removeSelected(container, 'RemoveAll')" title="Delete Selected">
+                        <i class="fa fa-times"></i>
+                    </button>
+                </td>
+
+                <td ng-if="container.totalSelected > 0 && container.IsEditable">
+                    <button class="smallest mini ui button"
+                            ng-click="parent.toggleEditSelectedItems(container)" ng-attr-title="{{parent.getEditSelectedItemTitle(container)}}">
+                        <i ng-class="parent.getEditSelectedItemClass(container)"></i>
+                    </button>
+                </td>
+
+                <td ng-if="container.totalSelected > 0">
+                    <button class="smallest mini ui success button"
+                            ng-click="parent.exportItems(container)" title="Export Selected">
+                        <i class="glyphicon glyphicon-export"></i>
+                    </button>
+                </td>
+
+                <td ng-if="container.totalSelected > 0 && container.totalChanged > 0">
+                    <button class="smallest mini ui success button "
+                            ng-click="parent.saveSelected(container, 'AddOrUpdateAll')" title="Save Selected">
+                        <i class="fa fa-save"></i>
+                    </button>
+                </td>
+
+                <td ng-bind="parent.getStatusText(container)"></td>
+                <td ng-bind="parent.getChangedText(container)"></td>
+                <td ng-bind="parent.getSelectedText(container)"></td>
+                <td ng-bind="parent.getFilterText(container)"></td>
+
+            </tr>
+        </table>
+    </div>
+
+    <table class="ui attached fixed small very compact collapsing table blue-grey lighten-5" style="width: 1200px; border-bottom: none; border-top: none">
+
+        <tr>
+            <td class="content fixed small">&nbsp;</td>
+
+            <td class="content fixed small">
+                <div class="ui fitted checkbox">
+                    <input ng-disabled="parent.getItemTotal(container) == 0" type="checkbox" ng-click="parent.toggleSelectAll(container)" ng-attr-title="{{parent.getSelectAllTitle(container)}}" />
+                    <label></label>
+                </div>
+            </td>
+
+            <td class="content fixed small" ng-if="container.IsEditable">
+                <button class="smallest mini ui button success" ng-click="parent.addEmptyItem(container)" title="Add {{container.Name}}"><i class="fa fa-plus"></i></button>
+            </td>
+
+            <td class="content fixed small" ng-if="container.IsEditable">
+                <button type="file" accept="*.csv, *.xls, *.xlsx, *.txt" ngf-select="parent.uploadFiles(container, $file, $invalidFiles)" 
+                        class="smallest mini ui success button" title="Import">
+                    <i class="glyphicon glyphicon-import"></i>
+                </button>
+            </td>
+
+            <td ng-if="container.totalChanged > 0" class="content fixed small">&nbsp;</td>
+
+            <td class="content fixed small"><i class="tiny-font fa fa-hashtag fa-1" style="font-size: 0.8em;"></i></td>
+
+            <td ng-if="prop.IsVisible" ng-repeat="(propName, prop) in  ::container.Properties track by $index"><b>{{propName}}</b></td>
+        </tr>
+
+    </table>
+
+    <div class="ui attached segment scrollable blue-grey lighten-5" style="padding: 0px;">
+    
+        <!--ng-init="parent.initContainer(container);
+        childCol = parent.model.Children[containerIndex].Children;
+        filters = parent.model.Children[containerIndex].Filters"-->
+
+        <table style="border: none; width: 1200px" class="ui fixed small very compact collapsing table blue-grey lighten-5 content"
+               infinite-scroll="parent.loadMoreItems(container)" infinite-scroll-distance="0" infinite-scroll-parent="true">
+
+            <tr ng-if="!child.IsDeleted" class="item" ng-class="parent.getItemClass(child)" data-row="{{childIndex}}" data-id="{{child.Id}}"
+                ng-repeat="(childIndex, child) in  parent.containerItems(container) | orderBy: child.Index track by $index">
+
+                <td class="content fixed small" ng-attr-title="{{parent.getItemToggleTitle(child)}}">
+                    <button class="ui button arrow" style="border: none; padding: 0px" ng-click="parent.toggleItemContent(child)">
+                        <i class="fa fa-chevron-down" ng-class="parent.getItemToggleClass(child)"></i>
+                    </button>
+                </td>
+
+                <td class="content fixed small">
+                    <div class="ui fitted checkbox">
+                        <input type="checkbox" ng-checked="child.IsSelected" ng-click="parent.toggleSelectItem(container, child)" ng-attr-title="{{parent.getSelectItemTitle(child)}}" />
+                        <label></label>
+                    </div>
+                </td>
+
+                <td class="content fixed small" ng-if="child.IsNew && parent.isLastNewItem(container)">&nbsp;</td>
+
+                <td class="content fixed small" ng-if="container.IsEditable && (!child.IsNew || !parent.isLastNewItem(container))">
+                    <button class="smallest mini ui error button"
+                            ng-click="parent.removeItem(container, child, 'Remove')" title="Delete">
+                        <i class="fa fa-times"></i>
+                    </button>
+                </td>
+
+
+                <td class="content fixed small" ng-if="container.IsEditable && (!child.IsEdit && !child.IsNew)">
+                    <button class="smallest mini ui button"
+                            ng-click="parent.showEdit(container, child);" title="Edit">
+                        <i class="fa fa-edit"></i>
+                    </button>
+                </td>
+
+                <td class="content fixed small" ng-if="container.IsEditable && (child.IsEdit && !child.IsNew)">
+                    <button class="smallest mini ui button"
+                            ng-click="parent.hideEdit(container, child);" title="Cancel">
+                        <i class="fa fa-minus-circle"></i>
+                    </button>
+                </td>
+
+
+                <td ng-if="container.totalChanged > 0 && !child.HasChanged" class="content fixed small">&nbsp;</td>
+
+                <td class="content fixed small" ng-if="child.IsNew && !child.HasChanged">&nbsp;</td>
+
+                <td class="content fixed small" ng-if="child.IsNew && child.HasChanged">&nbsp;</td>
+
+                <td class="content fixed small" ng-if="container.IsEditable && child.HasChanged">
+                    <button class="smallest mini ui success button"
+                            ng-click="parent.saveItem(container, child, 'AddOrUpdate')" title="Save Changes">
+                        <i class="fa fa-save"></i>
+                    </button>
+                </td>
+
+                <td ng-repeat="cmd in ::child.Commands" class="content fixed small">
+                    <button class="smallest mini ui success button"
+                            ng-click="parent.invokeCommand(child, cmd)" ng-attr-title="{{cmd.Title}}">
+                        <i class="{{cmd.Icon}}"></i>
+                    </button>
+                </td>
+
+                <td class="content fixed small">{{child.Index+1}}</td>
+
+                <td ng-if="container.Properties[propName].IsVisible" ng-repeat="(propName, prop) in  ::child.Properties" ng-init="conProp = container.Properties[propName];">
+
+                    <span ng-if="conProp.IsVisible && (!child.IsEdit && !child.IsNew)">{{prop.Value}}</span>
+
+                    <div ng-if="conProp.IsVisible && (child.IsEdit || child.IsNew)" class="ui small input">
+
+                        <span ng-if="conProp.IsVisible && propName == 'ID' && !child.IsNew">{{prop.Value}}</span>
+
+                        <input ng-if="conProp.Type === parent.DataType.String" type="text" placeholder="{{prop.Name}}"
+                               ng-model="prop.Value" ng-change="parent.setItemPropVal(container, child, propName, prop.Value)"
+                               ng-class="parent.getItemPropClass(child)">
+
+                        <input ng-if="propName != 'ID' && conProp.Type === parent.DataType.Number" type="text" placeholder="{{prop.Name}}"
+                               ng-model="prop.Value" ng-change="parent.setItemPropVal(container, child, propName, prop.Value)"
+                               ng-class="parent.getItemPropClass(child)">
+
+                        <div ng-if="conProp.Type === parent.DataType.List">
+                            <list-container container="container" parent="parent" prop-name="propName" add-blank="false" is-filter="false" item="child"></list-container>
+                        </div>
+                    </div>
+                </td>
+
+            </tr>
+
+            <tr ng-if="!item.IsNew" class="content" ng-show="child.IsExpanded" ng-repeat="(childIndex, child) in parent.containerItems(container) | orderBy: child.Index track by $index " data-row="{{childIndex}}" data-id="{{child.Id}}">
+                <td colspan="10">
+                    <child model="child.Children" parent="parent" do-load="false"></child>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

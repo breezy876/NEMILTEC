@@ -1,0 +1,45 @@
+﻿
+
+
+@using Newtonsoft.Json
+@model NEMILTEC.MVC.Models.PageModel
+
+@{
+
+    var modelJSON = Newtonsoft.Json.JsonConvert.SerializeObject(Model, new JsonSerializerSettings
+    {
+     TypeNameHandling = TypeNameHandling.Objects
+    });
+}
+
+<div ng-app="mainApp" >
+
+    <div ng-controller="MainController" id="dvController" ng-init="init(@modelJSON);">
+
+        <h3>@Model.Title</h3>
+
+
+            <div class="container" query>
+                @{
+                    Html.RenderPartial("_PageContainerPartial", Model);
+                }
+            </div>
+
+    </div>
+
+</div>
+
+
+        @section Scripts
+        {
+            <script src="~/Scripts/common.js" type="text/javascript"></script>
+   
+            <script src="~/Scripts/mainApp.js" type="text/javascript"></script>
+            <script src="~/Scripts/main.js" type="text/javascript"></script>
+            <script src="~/Scripts/Modules/query.js" type="text/javascript"></script>
+
+
+        }
+
+
+
